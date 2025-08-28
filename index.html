@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume — Ankit Jangir</title>
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #0f172a;
+      --ink: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #60a5fa; /* sky-400 */
+      --accent-2: #34d399; /* emerald-400 */
+      --chip: #1f2937;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .35);
+    }
+    [data-theme="light"]{
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb; /* blue-600 */
+      --accent-2: #059669; /* emerald-600 */
+      --chip: #f1f5f9;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+    }
+
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(96,165,250,.15), transparent 60%),
+        radial-gradient(1000px 700px at 110% 10%, rgba(52,211,153,.12), transparent 60%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap{
+      max-width: 960px;
+      margin: 48px auto;
+      padding: 0 20px 80px;
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid rgba(148,163,184,.15);
+      box-shadow: var(--shadow);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .hero{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      padding: 32px 28px 20px;
+      background: linear-gradient(180deg, rgba(96,165,250,.10), rgba(96,165,250,0) 35%), var(--panel);
+      border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    .name{ font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: .2px; }
+    .role{ color: var(--muted); margin-top: 6px; font-size: 15px; }
+
+    .actions{ display: flex; gap: 10px; align-items: start; }
+    .btn{ appearance: none; border: 0; padding: 10px 14px; border-radius: 999px; font-weight: 600; cursor: pointer; background: var(--ink); color: var(--panel); }
+    .btn.ghost{ background: transparent; color: var(--ink); border: 1px solid rgba(148,163,184,.25); }
+    .btn:hover{ filter: brightness(1.05); }
+
+    .contact{
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+    }
+    .tag{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background: var(--chip); color: var(--ink); border:1px solid rgba(148,163,184,.18); font-size: 13px; }
+    .tag svg{ width: 16px; height: 16px; opacity:.9; }
+
+    /* Sections */
+    .grid{ display:grid; grid-template-columns: 1fr; }
+    @media (min-width: 900px){ .grid{ grid-template-columns: 2fr 1fr; } }
+
+    .section{ padding: 22px 28px; border-bottom: 1px solid rgba(148,163,184,.12); }
+    .section:last-child{ border-bottom: 0; }
+    .h2{ font-size: 18px; font-weight: 800; letter-spacing: .2px; margin: 0 0 14px; text-transform: uppercase; color: var(--ink); }
+    .lead{ color: var(--muted); margin: 0; }
+
+    /* Lists */
+    .list{ display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .item{ background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,0)); border:1px solid rgba(148,163,184,.14); padding: 14px 16px; border-radius: 14px; }
+    .item h3{ margin: 0 0 4px; font-size: 16px; }
+    .meta{ font-size: 13px; color: var(--muted); display:flex; flex-wrap:wrap; gap:10px; }
+    .bullet{ margin: 8px 0 0 0; color: var(--ink); }
+
+    /* Chips */
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+    .chip{ padding:7px 10px; border:1px solid rgba(148,163,184,.2); border-radius: 999px; background: var(--chip); font-size: 13px; }
+
+    /* Footer note */
+    .foot{ padding: 18px 28px 30px; color: var(--muted); font-size: 13px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .tiny{ font-size: 12px; color: var(--muted); }
+
+    /* Print styles */
+    @media print{
+      body{ background: white; }
+      .wrap{ margin: 0; padding: 0; }
+      .card{ border: 0; box-shadow: none; }
+      .hero{ padding: 16px 0 8px; background: none; border-bottom: 2px solid #e5e7eb; }
+      .actions, .foot{ display: none !important; }
+      .section{ padding: 14px 0; border-color: #e5e7eb; }
+      .item{ border-color: #e5e7eb; }
+    }
+
+    /* Helpers */
+    .accent{ color: var(--accent); }
+    .accent-bg{ background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip:text; background-clip:text; color: transparent; }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <!-- HEADER -->
+      <header class="hero">
+        <div>
+          <h1 class="name">Ankit Jangir</h1>
+          <p class="role">Aspiring <span class="accent-bg">Civil Engineer</span> • Frontend Web Developer • Logo Designer</p>
+          <div class="contact">
+            <span class="tag" title="Phone">
+              <!-- phone icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.77.57 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.09a2 2 0 0 1 2.11-.45c.84.27 1.71.45 2.61.57A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+91 7340610827" target="_blank" style="font-weight: 600; margin: auto;" class="bullet">7340610827</a>
+            </span>
+            <span class="tag" title="Email">
+              <!-- mail icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+               <a href="mailto:ankitjangir529@gmail.com" target="_blank" style="font-weight: 600; margin: auto;" class="bullet">ankitjangir529@gmail.com</a>
+            </span>
+            <a class="tag" href="https://linkedin.com/in/ankitjangir" target="_blank" class="bullet" rel="noopener">
+              <!-- linkedin icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4zM8.5 8.5h3.8v2h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.06V23h-4v-5.9c0-1.41-.03-3.22-1.96-3.22-1.97 0-2.27 1.54-2.27 3.12V23h-4z"/></svg>
+              <a href="https://www.linkedin.com/in/ankit-jangir-ba438035b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"  style="font-weight: 400; " class="bullet" target="_blank">linkedin.com/in/ankitjangir0827</a>
+            </a>
+            <a class="tag" href="https://github.com/ankitjangir" target="_blank" rel="noopener">
+              <!-- github icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.12-1.52-1.12-1.52-.92-.64.07-.63.07-.63 1.02.07 1.55 1.07 1.55 1.07.9 1.58 2.36 1.12 2.94.86.09-.66.35-1.12.64-1.38-2.22-.26-4.55-1.15-4.55-5.16 0-1.14.39-2.06 1.03-2.79-.1-.25-.45-1.28.1-2.65 0 0 .85-.28 2.8 1.06.81-.23 1.68-.34 2.55-.34.86 0 1.74.12 2.55.34 1.95-1.34 2.8-1.06 2.8-1.06.55 1.37.2 2.4.1 2.65.64.73 1.03 1.65 1.03 2.79 0 4.02-2.34 4.9-4.57 5.16.36.32.69.93.69 1.87 0 1.35-.01 2.44-.01 2.77 0 .27.18.6.69.5 3.97-1.35 6.84-5.18 6.84-9.7C22 6.58 17.52 2 12 2Z" clip-rule="evenodd"/></svg>
+              <a href="https://github.com/ankitjangir0827"  target="_blank"  style="font-weight: 380;" class="bullet">github.com/ankitjangir0827</a>
+            </a>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <button class="btn ghost" id="themeToggle" aria-pressed="false">Toggle Theme</button>
+        </div>
+      </header>
+
+      <!-- OBJECTIVE -->
+      <section class="section">
+        <h2 class="h2">Career Objective</h2>
+        <p class="lead">Motivated and detail-oriented Civil Engineering undergraduate with strong problem-solving, leadership, and project management skills. Seeking a professional work placement to apply academic knowledge and gain practical industry experience in construction technology, structural design, and project execution.</p>
+      </section>
+
+      <div class="grid">
+        <!-- LEFT COLUMN -->
+        <div>
+          <!-- PROJECTS -->
+          <section class="section">
+            <h2 class="h2">Fronteng Projects</h2>
+            <ul class="list">
+              <li class="item">
+                <h3>Studysync</h3>
+                <div class="meta"><span>2024</span><span>HTML, CSS, JavaScript</span></div>
+                <p class="bullet">Developed a digital website page for technology study <br><a href="https://ankitjangir0827.github.io/studync"  style="font-weight: 600; margin: auto;" class="bullet" target="_blank" class="bullet">studysync Web</a></p>
+              </li>
+          </section>
+
+            <!-- ongoing projects -->
+          <section class="section">
+            <h2 class="h2">Ongoing frontend projects</h2>
+            <ul class="list">
+              <li class="item">
+                <h3>Rozaerpay(clone)</h3>
+              </li>
+              <li class="item">
+                <h3>Prithvi web development  </h3>
+                <div class="meta">
+                  <span></span>
+                 </div> 
+              </li>
+            </ul>
+          </section>
+
+          <!-- EDUCATION -->
+          <section class="section">
+            <h2 class="h2">Education</h2>
+            <ul class="list">
+              <li class="item">
+                <h3>B.Tech, Civil Engineering</h3>
+                <div class="meta"><span>NIT CALICUT</span><span>2024 – Present</span></div>
+                <p class="bullet">Second Year at NIT CALICUT </p>
+              </li>
+              <li class="item">
+                <h3>Senior Secondary (XII), CBSE</h3>
+                <div class="meta"><span>St. Paul School</span><span>2021</span></div>
+              </li>
+              <li class="item">
+                <h3>Secondary (X), CBSE</h3>
+                <div class="meta"><span>Saraswati  Public School
+                </span><span>2019</span></div>
+              </li>
+            </ul>
+          </section>
+
+           <section class="section">
+            <h2 class="h2">Positions of Responsibility</h2>
+            <ul class="list">
+              <li class="item">
+                <h3>PRC </h3>
+              </li>
+              <li class="item">
+                <h3>Streetplay</h3>
+              </li>
+              <li class="item">
+                <h3>Mess Secreratory</h3>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <aside>
+          <section class="section">
+            <h2 class="h2">Skills</h2>
+            <div class="chips">
+              <span class="chip">AutoCAD</span>
+              <span class="chip">Sketchup 3D</span>
+              <span class="chip">MS Office</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip"> Tailwind CSS</span>
+              <span class="chip"> Python</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Figma </span>
+              <span class="chip">Adobe photoshop</span>
+              <span class="chip">Filmora </span>
+              <span class="chip">Canva </span>
+              <span class="chip">Logo Designing </span>    
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="h2">Certifications</h2>
+            <ul class="list">
+              <li class="item">
+                <h3>Construction Project Management</h3>
+                <div class="meta"><span>Coursera</span><span>2024</span></div>
+              </li>
+              <li class="item">
+                <h3>AutoCAD Civil 3D Certification</h3>
+                <div class="meta"><span>Autodesk</span><span>2023</span></div>
+              </li>
+              <li class="item">
+                <h3>Intro to HTML, CSS & JS</h3>
+                <div class="meta"><span>freeCodeCamp</span><span>2023</span></div>
+              </li>
+            </ul>
+          </section>
+
+           <section class="section">
+            <h2 class="h2">Achievements</h2>
+            <ul class="list">
+              <li class="item">
+                <h3>Tech Team CEA</h3>
+                <div class="meta"><span>Selected as</span><span>Web Developer</span></div>
+              </li>
+              <li class="item">
+                <h3>WnCC IITB</h3>
+                <div class="meta"><span>Web Developer in tech fest of IIT BOMBAY</span><span>2025</span></div>
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+
+         
+
+         
+
+      <footer class="foot">
+        <span class="tiny">Last updated: <span id="updated"></span></span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle (light/dark)
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved){
+      if(saved === 'light') root.setAttribute('data-theme','light');
+      if(saved === 'dark') root.removeAttribute('data-theme');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = root.getAttribute('data-theme') === 'light';
+      if(isLight){
+        root.removeAttribute('data-theme');
+        localStorage.setItem('theme','dark');
+        toggle.setAttribute('aria-pressed','false');
+      } else {
+        root.setAttribute('data-theme','light');
+        localStorage.setItem('theme','light');
+        toggle.setAttribute('aria-pressed','true');
+      }
+    });
+
+    document.getElementById('updated').textContent = new Date().toLocaleDateString();
+  </script>
+</body>
+</html>
